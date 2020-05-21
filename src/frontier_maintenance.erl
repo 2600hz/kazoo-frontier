@@ -19,6 +19,8 @@
         ,update_system_default/2
         ]).
 
+-export([register_views/0]).
+
 -spec lookup_acls(kz_term:ne_binary()) -> 'ok'.
 lookup_acls(Entity) ->
     io:format("looking for ACL records for ~s:~n", [Entity]),
@@ -63,3 +65,7 @@ update_system_default(Path, Value) ->
     io:format("Updating ~s from ~p to ~p~n", [Path, OldRate, NewRate]),
     {'ok', _} = kapps_config:set(?APP_NAME, <<"rate_limits">>, kz_json:set_value(Keys, NewRate, Rates)),
     'ok'.
+
+-spec register_views() -> 'ok'.
+register_views() ->
+    kz_datamgr:register_views_from_folder(?APP).

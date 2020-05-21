@@ -3,6 +3,7 @@
 -include_lib("kazoo_stdlib/include/kz_log.hrl").
 -include_lib("kazoo_stdlib/include/kz_databases.hrl").
 
+-define(APP, 'frontier').
 -define(APP_NAME, <<"frontier">>).
 -define(APP_VERSION, <<"4.0.0">> ).
 
